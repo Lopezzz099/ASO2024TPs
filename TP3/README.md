@@ -4,6 +4,7 @@
     c)Antes de descomentar las lineas comentadas, el valor daba 0 y el tiempo de ejecucion era milisegundos (menor que 1seg) pero una vez descomentado tomo mas tiempo (alrededor de 2seg) y daba un resultado tanto positivo y negativo e iba variando demasiado. Esto ocurre porque al descomentar el ciclo for, le agrega una carga a la CPU lo que aumenta el tiempo de ejecucion. Gracias a esto, el acumulador (que es la zona critica) tiene un aumento en la carga de trabajo el cual da problemas en la sincronizacion de hilos. La race condition seria lo que ocaciona lo anterior, que tire resultados diferentes por ejecucion.
 2)
     a)
+    ```c
     #include <pthread.h>
     #include <stdio.h>
     #include <stdlib.h>
