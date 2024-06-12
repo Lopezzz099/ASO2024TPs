@@ -2,10 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define NUMBER_OF_THREADS 2
-#define CANTIDAD_INICIAL_HAMBURGUESAS 8
+#define CANTIDAD_INICIAL_HAMBURGUESAS 20
 int cantidad_restante_hamburguesas = CANTIDAD_INICIAL_HAMBURGUESAS;
 int turno = 0;
-
 
 void *comer_hamburguesa(void *tid)
 {
@@ -21,7 +20,7 @@ void *comer_hamburguesa(void *tid)
 		else
 		{
 			printf("SE TERMINARON LAS HAMBURGUESAS :( \n");
-
+			turno = (turno + 1)% NUMBER_OF_THREADS;
 			pthread_exit(NULL); // forzar terminacion del hilo
 		}
     // SALIDA DE LA ZONA CRÍTICA   
@@ -33,7 +32,6 @@ int main(int argc, char *argv[])
 {
 	pthread_t threads[NUMBER_OF_THREADS];
 	int status, i, ret;
-
 	for (int i = 0; i < NUMBER_OF_THREADS; i++)
 	{
 		printf("Hola!, soy el hilo principal. Estoy creando el hilo %d \n", i);
