@@ -57,4 +57,5 @@
 	    }
 	    pthread_exit(NULL); // como los hilos que cree ya terminaron de ejecutarse, termino yo tambien.
     }
+    ```
     b) <img src="./DiagramaRegionesCriticasDiagram.drawio.png">
